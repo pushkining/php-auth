@@ -10,30 +10,36 @@
 <html>
 <body>
     <?php
+    session_start();
     require ('connect.php');
 
-    if (isset($_POST['username']) && isset($_POST['password'])){
+    if (isset($_POST['username']) and isset($_POST['password'])){
         $username = $_POST['username'];
-        $email = $_POST['email'];
         $password = $_POST['password'];
-        $query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password') ";
-        $result = mysqli_query($connection, $query);
-        if($result) {
-        $smsg = "Регистрация прошла успешно";
-        } else {
-             $fsmsg = "Ошибка"; }        
-    }   
+        $query = "SELECT * FROM users WHERE username = '$username' and password = '$password'";
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+        $count = mysqli_num_rows($result);
+
+        if($count == 1) {
+            $_SESSION['username'] = $username;
+        }else{
+            $fsmsg = "Ошибка";
+        }
+    }
+    if(isset($_SESSION['username'])){
+        $_SESSION['username'] = $username;
+        echo "Hello  ".$username;
+
+    }
     ?>
     <div class="contanier">
         <form class="form-signin" method="POST">
-        <h2>Registration</h2>
+        <h2>Login</h2>
 <?php if(isset($smsg)) { ?> <div class="alert alert-success" role="alert"> <?php echo $smsg ?> </div> <?php } ?>
 <?php if(isset($fsmsg)) { ?> <div class="alert alert-danger" role="alert"> <?php echo $fsmsg ?> </div> <?php } ?>
         <input type="text" name="username" class="form-control" placeholder="Username" required>
-        <input type="email" name="email" class="form-control" placeholder="Email" required>
         <input type="password" name="password" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        <a href="login.php" class="btn btn-lg btn-primary btn-block">Login</a>
+        <a href="cinema.php" class="btn btn-lg btn-primary btn-block">Login</a>
         </form>
     </div>
 </body>
