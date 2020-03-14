@@ -41,7 +41,7 @@ $query = "SELECT * FROM movie ";
         ?>
         </tbody>
     </table>
-    <button class="btn btn-outline-secondary" type="button" name='add'>Добавить</button>
+    <a class="btn btn-primary" href="edit.php" role="button">Добавить</a>
 </form>
 
 
