@@ -29,13 +29,11 @@
     if(isset($_SESSION['username'])){
         $_SESSION['username'] = $username;
         echo "Hello  ".$username;
-
     }
     ?>
     <div class="contanier">
         <form class="form-signin" method="POST">
         <h2>Login</h2>
-<?php if(isset($smsg)) { ?> <div class="alert alert-success" role="alert"> <?php echo $smsg ?> </div> <?php } ?>
 <?php if(isset($fsmsg)) { ?> <div class="alert alert-danger" role="alert"> <?php echo $fsmsg ?> </div> <?php } ?>
         <input type="text" name="username" class="form-control" placeholder="Username" required>
         <input type="password" name="password" class="form-control" placeholder="Password" required>

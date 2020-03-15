@@ -1,7 +1,8 @@
 <?php
 require 'connect.php';
-if (isset($_POST['button']))  //если юзер нажал на кнопку
-{
-echo("Welcome");
-//здесь вставляешь свою функцию
+require  'cinema.php';
+if(isset($_POST['delete'])) {
+#    $sql = "DELETE FROM movie WHERE nameMov = $row['movieId']";
+} elseif(isset($_POST['edit'])) {
+    include './script2.php';
 }

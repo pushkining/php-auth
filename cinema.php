@@ -11,39 +11,44 @@
 <html>
 <body>
 <?php
-require('connect.php');
+require 'connect.php';
+//require 'button.php';
 $query = "SELECT * FROM movie ";
 
 ?>
 <div class="input-group mr-5">
-<form action="button.php" method="POST">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Название</th>
-            <th scope="col">Жанр</th>
-            <th scope="col">Выход</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        if($result = mysqli_query($connection, $query)) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>".$row['nameMov']."</td>";
-                echo "<td>".$row['description']."</td>";
-                echo "<td>".$row['releaseDate']."</td>";
-                echo "<td><button class=\"btn btn-outline-secondary\" type=\"button\" name='delete'>Удалить</button><button class=\"btn btn-outline-secondary\" type=\"button\" name='edit'>Редактировать</button></td>";
-                echo "</tr>";
-            }
-        }
-        ?>
-        </tbody>
-    </table>
-    <a class="btn btn-primary" href="edit.php" role="button">Добавить</a>
-</form>
+    <form action="" method="POST">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Жанр</th>
+                <th scope="col">Выход</th>
+                <th scope="col"></th>
+                <th scope="col">
 
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            if ($result = mysqli_query($connection, $query)) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row['nameMov'] . "</td>";
+                    echo "<td>" . $row['description'] . "</td>";
+                    echo "<td>" . $row['releaseDate'] . "</td>";
+                    echo "<td>" . $row['directorId'] . "</td>";
+                    echo "<td><button class=\"btn btn-outline-secondary\" type=\"button\" name='edit'>Редактировать</button></td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="edit.php" role="button">Добавить</a>
+        <a class="btn btn-primary" href="delete.php" role="button">Удалить</a>
+    </form>
 
 
 </div>
