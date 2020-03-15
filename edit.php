@@ -13,23 +13,23 @@
 <body>
 <?php
 require 'connect.php';
-switch ($_POST['director']) {
-    case "Cameron":
-        $directorId = "1";
-        break;
-    case "Tarantino":
-        $directorId = "2";
-        break;
-    case "Abrams" :
-        $directorId = "3";
-        break;
-}
+//switch ($_POST['director']) {
+//    case "Cameron":
+//        $directorId = "1";
+//        break;
+//    case "Tarantino":
+//        $directorId = "2";
+//        break;
+//    case "Abrams" :
+//        $directorId = "3";
+//        break;
+//}
 if (isset($_POST['nameMov']) and isset($_POST['description']) and isset($_POST['releaseDate']) and isset($_POST['directorId'])) {
     $nameMov = $_POST['nameMov'];
     $description = $_POST['description'];
     $releaseDate = $_POST['releaseDate'];
     $directorId = $_POST['directorId'];
-    $query = "INSERT INTO movie (nameMov, description, releaseDate, (SELECT nameDir FROM director WHERE movie.directorId = director.directorId))  ";
+    $query = "INSERT INTO movie (nameMov, description, releaseDate, directorId) ";
     $query .="VALUES ('$nameMov', '$description', '$releaseDate', '$directorId')";
     $result = mysqli_query($connection, $query);
     if ($result == true) {
@@ -45,10 +45,13 @@ if (isset($_POST['nameMov']) and isset($_POST['description']) and isset($_POST['
         <input type="text" class="form-control" name="nameMov" aria-describedby="" placeholder="Название">
         <input type="text" class="form-control" name="description" placeholder="Жанр">
         <input type="date" class="form-control" name="releaseDate">
-        <input type="text" class="form-control" name="director" placeholder="Режиссёр">
+        <input type="text" class="form-control" name="directorId" placeholder="Режиссёр">1-Cameron,2-Tarantino,3-Abrams
 
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Добавить</button>
+        <?php if($result == true) {
+            echo "<a class=\"btn btn-primary m-3\" href=\"cinema.php\" role=\"button\">Вернуться</a>";
+        } ?>
         <!--        <a class="btn btn-primary" href="cinema.php" role="button">Добавить</a>-->
     </form>
 </div>
