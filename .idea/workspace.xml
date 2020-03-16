@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f2b9486-3d28-4733-9b46-885b32b08846" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cinema.php" beforeDir="false" afterPath="$PROJECT_DIR$/cinema.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/delete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +59,7 @@
       <workItem from="1584227171691" duration="1218000" />
       <workItem from="1584261617303" duration="16224000" />
       <workItem from="1584292460702" duration="111000" />
-      <workItem from="1584361396487" duration="14074000" />
+      <workItem from="1584361396487" duration="19581000" />
     </task>
     <servers />
   </component>
@@ -82,13 +78,17 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="500" y="184" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1584174560433" />
-    <state x="516" y="352" key="NewPhpFileDialog" timestamp="1584368009497">
+    <state x="516" y="352" key="NewPhpFileDialog" timestamp="1584381771137">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="516" y="352" key="NewPhpFileDialog/0.0.1440.860@0.0.1440.860" timestamp="1584368009497" />
+    <state x="516" y="352" key="NewPhpFileDialog/0.0.1440.860@0.0.1440.860" timestamp="1584381771137" />
     <state x="387" y="252" key="com.intellij.ide.util.TipDialog" timestamp="1584361396447">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="387" y="252" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1584361396447" />
+    <state x="376" y="190" key="run.anything.popup" timestamp="1584382972037">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="376" y="190" key="run.anything.popup/0.0.1440.860@0.0.1440.860" timestamp="1584382972037" />
   </component>
 </project>

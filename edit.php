@@ -37,7 +37,7 @@ if (isset($_POST['nameMov'])) {
 if ($result = mysqli_query($connection, $query)) {
 
     echo "<div class=\"input-group \">
-    <table class=\"table m-5\">
+            <table class=\"table m-5\">
         <thead>
         <tr>
             <th scope=\"col\">Название</th>
@@ -66,12 +66,12 @@ if ($result = mysqli_query($connection, $query)) {
     </div>
     <button type=\"submit\" class=\"btn btn-primary m-5\" name=\"btn1\">Редактировать</button>
     </form>";
-    if (isset($_GET['nameMov']) && isset($_GET['description']) && isset($_GET['releaseDate'])) {
-        $nameMovOld = $_POST['nameMov'];
+    if (isset($_GET['nameMov']) && isset($_GET['description']) && isset($_GET['releaseDate']) && isset($_POST['nameMov'])) {
+        $nameMov1 = $_POST['nameMov'];
         $nameMov = $_GET['nameMov'];
         $description = $_GET['description'];
         $releaseDate = $_GET['releaseDate'];
-        $query1 = "UPDATE movie SET nameMov = '$nameMov', description = '$description', releaseDate = '$releaseDate' WHERE nameMov = '$nameMovOld'";
+        $query1 = "UPDATE movie SET nameMov = '$nameMov', description = '$description', releaseDate = '$releaseDate' WHERE nameMov = '$nameMov1'";
         $result = mysqli_query($connection, $query1);
     }
 //    if (isset($_GET['nameDir'])){
@@ -81,12 +81,10 @@ if ($result = mysqli_query($connection, $query)) {
 //        $result = mysqli_query($connection, $query);
 //    }
 }
+//var_dump($nameMov1);
 ?>
 </tbody>
 </table>
 </div>
 </body>
 </html>
-
-
-
