@@ -12,8 +12,7 @@
 <body>
 <?php
 require 'connect.php';
-//require 'button.php';
-$query = "SELECT * FROM movie ";
+$query = "SELECT * FROM movie JOIN director on movie.directorId=director.directorId ORDER BY movieId";
 
 ?>
 <div class="input-group mr-5">
@@ -24,7 +23,7 @@ $query = "SELECT * FROM movie ";
                 <th scope="col">Название</th>
                 <th scope="col">Жанр</th>
                 <th scope="col">Выход</th>
-                <th scope="col"></th>
+                <th scope="col">Режиссёр</th>
                 <th scope="col">
 
                 </th>
@@ -38,16 +37,16 @@ $query = "SELECT * FROM movie ";
                     echo "<td>" . $row['nameMov'] . "</td>";
                     echo "<td>" . $row['description'] . "</td>";
                     echo "<td>" . $row['releaseDate'] . "</td>";
-                    echo "<td>" . $row['directorId'] . "</td>";
-                    echo "<td><button class=\"btn btn-outline-secondary\" type=\"button\" name='edit'>Редактировать</button></td>";
+                    echo "<td>" . $row['nameDir'] . "</td>";
                     echo "</tr>";
                 }
             }
             ?>
             </tbody>
         </table>
-        <a class="btn btn-primary" href="edit.php" role="button">Добавить</a>
+        <a class="btn btn-primary" href="add.php" role="button">Добавить</a>
         <a class="btn btn-primary" href="delete.php" role="button">Удалить</a>
+        <a class="btn btn-primary" href="edit.php" role="button">Редактировать</a>
     </form>
 
 

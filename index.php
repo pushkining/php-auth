@@ -26,10 +26,7 @@
             $fsmsg = "Ошибка";
         }
     }
-    if(isset($_SESSION['username'])){
-        $_SESSION['username'] = $username;
-        echo "Hello  ".$username;
-    }
+
     ?>
     <div class="contanier">
         <form class="form-signin" method="POST">
@@ -37,7 +34,14 @@
 <?php if(isset($fsmsg)) { ?> <div class="alert alert-danger" role="alert"> <?php echo $fsmsg ?> </div> <?php } ?>
         <input type="text" name="username" class="form-control" placeholder="Username" required>
         <input type="password" name="password" class="form-control" placeholder="Password" required>
-        <a href="cinema.php" class="btn btn-lg btn-primary btn-block">Login</a>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <?php
+            if(isset($_SESSION['username'])){
+                $_SESSION['username'] = $username;
+                echo "<h2>Hello</h2>  ".$username;
+                echo "<a class=\"btn btn-primary\" href=\"cinema.php\" role=\"button\">Далее</a>";
+            }
+            ?>
         </form>
     </div>
 </body>

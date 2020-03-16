@@ -11,13 +11,13 @@
 <body>
 <?php
 require 'connect.php';
-if(isset($_POST['nameMov'])){
-    $nameMov = $_POST['nameMov'];
+if(isset($_GET['nameMov'])){
+    $nameMov = $_GET['nameMov'];
     $query = "DELETE FROM movie WHERE nameMov = '$nameMov'";
     $result = mysqli_query($connection, $query);
 }
 ?>
-<form method="POST">
+<form method="GET">
     <div class="form-signin form-group m-3">
         <label>Удалить по названию</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter movie" name="nameMov">
@@ -26,6 +26,7 @@ if(isset($_POST['nameMov'])){
 
     <button type="submit" class="btn btn-primary m-5">Удалить</button>
     <?php if($result == true) {
+        echo "Информация успешно удаленна";
         echo "<a class=\"btn btn-primary m-3\" href=\"cinema.php\" role=\"button\">Вернуться</a>";
     } ?>
 </form>
