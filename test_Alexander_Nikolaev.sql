@@ -13,8 +13,8 @@
 
 -- CREATE TABLE "director" -------------------------------------
 CREATE TABLE `director` ( 
-	`directorId` Int( 11 ) NOT NULL,
 	`nameDir` VarChar( 255 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+	`directorId` Int( 11 ) NOT NULL,
 	PRIMARY KEY ( `directorId` ) )
 CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci
@@ -33,7 +33,7 @@ CREATE TABLE `movie` (
 CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci
 ENGINE = InnoDB
-AUTO_INCREMENT = 5;
+AUTO_INCREMENT = 53;
 -- -------------------------------------------------------------
 
 
@@ -52,6 +52,7 @@ AUTO_INCREMENT = 3;
 
 -- Dump data of "director" ---------------------------------
 INSERT INTO `director`(`directorId`,`nameDir`) VALUES 
+( '0', 'Hitchcock' ),
 ( '1', 'Cameron' ),
 ( '2', 'Tarantino' ),
 ( '3', 'Abrams' );
@@ -63,7 +64,13 @@ INSERT INTO `movie`(`movieId`,`directorId`,`nameMov`,`description`,`releaseDate`
 ( '1', '1', 'Avatar', 'fantasy', '2000-01-01' ),
 ( '2', '2', 'Kill Bill', 'crime', '2004-01-01' ),
 ( '4', '3', 'Star treck', 'fantastic', '2009-01-01' ),
-( '5', '2', 'Pulp fiction', 'crime', '1994-01-01' );
+( '5', '2', 'Pulp fiction', 'crime', '1994-01-01' ),
+( '53', '2', 'Slipknot', 'drama', '1987-01-01' ),
+( '54', '3', 'Queen', 'drama', '2003-01-01' ),
+( '55', '1', 'Metallica', 'horror', '2000-01-01' ),
+( '59', '0', 'Slipknot', 'drama', '1987-01-01' ),
+( '62', '0', 'assa', 'horror', '0000-00-00' ),
+( '63', '2', 'Queen', 'drama', '2001-01-01' );
 -- ---------------------------------------------------------
 
 
@@ -83,8 +90,8 @@ CREATE INDEX `directorId` USING BTREE ON `movie`( `directorId` );
 ALTER TABLE `movie`
 	ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY ( `directorId` )
 	REFERENCES `director`( `directorId` )
-	ON DELETE Restrict
-	ON UPDATE Restrict;
+	ON DELETE No Action
+	ON UPDATE No Action;
 -- -------------------------------------------------------------
 
 

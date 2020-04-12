@@ -11,7 +11,7 @@
 <body>
     <?php
     session_start();
-    require ('connect.php');
+    include ('connect.php');
 
     if (isset($_POST['username']) and isset($_POST['password'])){
         $username = $_POST['username'];
@@ -36,6 +36,7 @@
         <input type="password" name="password" class="form-control" placeholder="Password" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
             <?php
+            // var_dump ($_SESSION);
             if(isset($_SESSION['username'])){
                 $_SESSION['username'] = $username;
                 echo "<h2>Hello</h2>  ".$username;

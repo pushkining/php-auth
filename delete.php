@@ -15,6 +15,8 @@ if(isset($_GET['nameMov'])){
     $nameMov = $_GET['nameMov'];
     $query = "DELETE FROM movie WHERE nameMov = '$nameMov'";
     $result = mysqli_query($connection, $query);
+    echo "Информация успешно удаленна";
+    
 }
 ?>
 <form method="GET">
@@ -25,10 +27,8 @@ if(isset($_GET['nameMov'])){
     </div>
 
     <button type="submit" class="btn btn-primary m-5">Удалить</button>
-    <?php if($result == true) {
-        echo "Информация успешно удаленна";
-        echo "<a class=\"btn btn-primary m-3\" href=\"cinema.php\" role=\"button\">Вернуться</a>";
-    } ?>
+    <a class="btn btn-primary m-3" href="cinema.php" role="button">Вернуться</a>
+
 </form>
 </body>
 </html>
